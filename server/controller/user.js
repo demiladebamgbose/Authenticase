@@ -29,7 +29,6 @@ class User {
                 console.log(err);
                 return console.error(err);
             }
-
             if (userData) {
                 bcrypt.compare(req.body.password, userData.password, (err, data) => {
                     if (data) {
