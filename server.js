@@ -6,12 +6,16 @@ import dotenv from 'dotenv'
 dotenv.config();
 import bodyParser from 'body-parser';
 import http from 'http';
+import database from './server/config/database';
+import routes from './server/route';
 
 
 const port = process.env.PORT || 3890;
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+const db = database();
+routes(app);
 
 
 const webServer = http.createServer(app).listen(port, ()=>{
