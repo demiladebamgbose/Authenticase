@@ -16,7 +16,12 @@ function user() {
         email:{type: String, unique: true, required: true},
         profilePicture: {type: String},
         watchers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
-        bet: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bets'}]
+        bet: [{type: mongoose.Schema.Types.ObjectId, ref: 'Bets'}],
+        userType: {type: String,  enum: ['Handicapper', 'Bettor']},
+        company: {type: String},
+        phoneNumber: {type: Number},
+        dob: {type: Date, required: true},
+        verify: {type: Boolean, default: false}
     });
 
     UserSchema.pre('save', function (next) {
