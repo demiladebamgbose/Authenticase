@@ -3,6 +3,7 @@
  */
 import bcrypt from 'bcrypt-nodejs';
 import userModel from '../model/user';
+import email from '../services/email';
 
 class User {
 
@@ -13,11 +14,13 @@ class User {
                 console.log('error');
                 return;
             }
+            email.sendEmail(req.body.email);
 
             res.status(201).json({'message': 'user created' + data});
 
         });
     };
+
 
     login = (req, res) => {
 
