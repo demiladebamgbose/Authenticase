@@ -11,6 +11,7 @@ class User {
         let userSchema = userModel.model(req.body);
         userSchema.save((err, data) => {
             if (err) {
+                console.log(err);
                 console.log('error');
                 return;
             }

@@ -2,17 +2,17 @@
  * Created by jolaadeadewale on 12/09/2017.
  */
 import nodemailer from 'nodemailer';
+import emailTemplate from './emailTemplate';
 
 class Email {
 
     sendEmail = (email) => {
+
         let transporter = nodemailer.createTransport({
-            host: 'smtp.ethereal.email',
-            port: 587,
-            secure: false, // true for 465, false for other ports
+            service: 'Gmail',
             auth: {
-                user: 'joliphizzle@gmail.com', // generated ethereal user
-                pass: 'rooney07'  // generated ethereal password
+                user: 'starkstestingsolution@gmail.com', // generated ethereal user
+                pass: 'Jolaade080'  // generated ethereal password
             }
         });
 
@@ -20,9 +20,9 @@ class Email {
         let mailOptions = {
             from: 'Authenticase', // sender address
             to: email, // list of receivers
-            subject: 'Hello ✔', // Subject line
-            text: 'Hello world?', // plain text body
-            html: '<b>Hello world?</b>' // html body
+            subject: 'Welcome to Authenticase', // Subject line
+            text: '', // plain text body
+            html: emailTemplate() // html body
         };
 
         // send mail with defined transport object
