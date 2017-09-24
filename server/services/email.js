@@ -4,32 +4,32 @@
 import nodemailer from 'nodemailer';
 import emailTemplate from './emailTemplate';
 
-import {mail} from 'sendgrid';
-import sendgrid from 'sendgrid';
+
+var helper = require('sendgrid').mail;
+var from_email = new helper.Email('test@example.com');
 
 class Email {
 
     sendEmail = (email) => {
-        let from_email = new mail.Email('test@example.com');
-        let to_email = new mail.Email(email);
+        var to_email = new helper.Email(email);
 
-        let subject = 'Hello World from the SendGrid Node.js Library!';
-        let content = new mail.Content('text/html', emailTemplate());
-        let mail = new mail.Mail(from_email, subject, to_email, content);
+        var subject = 'Hello World from the SendGrid Node.js Library!';
+        var content = new helper.Content('text/html', emailTemplate());
+        var mail = new helper.Mail(from_email, subject, to_email, content);
 
-        let sendGrid = sendgrid(process.env.SENDGRID_API_KEY);
-
-        var request = sendGrid.emptyRequest({
+        var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+        var request = sg.emptyRequest({
             method: 'POST',
             path: '/v3/mail/send',
             body: mail.toJSON(),
         });
 
-        sendGrid.API(request, (error, response) =>{
+        sg.API(request, function(error, response) {
             console.log(response.statusCode);
             console.log(response.body);
             console.log(response.headers);
         });
+
     }
 }
 
