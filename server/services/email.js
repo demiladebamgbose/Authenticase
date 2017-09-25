@@ -6,7 +6,7 @@ import emailTemplate from './emailTemplate';
 
 
 var helper = require('sendgrid').mail;
-var from_email = new helper.Email('test@example.com');
+var from_email = new helper.Email('joliphizzle@gmail.com');
 
 class Email {
 
