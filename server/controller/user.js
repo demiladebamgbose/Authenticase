@@ -17,7 +17,7 @@ class User {
             }
             email.sendEmail(req.body.email);
 
-            res.status(201).json({'message': 'user created' + data});
+            res.status(201).json({message: { 'response': 'user created',  user:  data}});
 
         });
     };
