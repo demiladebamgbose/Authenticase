@@ -1,7 +1,7 @@
 /**
  * Created by jolaadeadewale on 12/09/2017.
  */
-export default function emailTemplate() {
+export default function emailTemplate(email) {
     return  "<!DOCTYPE html>\n" +
         "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
         "<head>\n" +
@@ -152,7 +152,7 @@ export default function emailTemplate() {
         "\n" +
         "</head>\n" +
         "<body width=\"100%\" bgcolor=\"#222222\" style=\"margin: 0; mso-line-height-rule: exactly;\">\n" +
-        "    <center style=\"width: 100%; background: #222222;\">\n" +
+        "    <center style=\"width: 100%; background: #224;\">\n" +
         "\n" +
         "        <!-- Visually Hidden Preheader Text : BEGIN -->\n" +
         "        <div style=\"display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;\">\n" +
@@ -164,7 +164,7 @@ export default function emailTemplate() {
         "        <table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" align=\"center\" width=\"600\" style=\"margin: auto;\" class=\"email-container\">\n" +
         "			<tr>\n" +
         "				<td style=\"padding: 20px 0; text-align: center\">\n" +
-        "					<img src=\"http://placehold.it/200x50\" width=\"200\" height=\"50\" alt=\"alt_text\" border=\"0\" style=\"height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;\">\n" +
+        "					<img src=\"http://res.cloudinary.com/dd58mfinr/image/upload/v1506351371/authenticase_h10mdg.jpg\" width=\"200\" height=\"50\" alt=\"alt_text\" border=\"0\" style=\"height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;\">\n" +
         "				</td>\n" +
         "			</tr>\n" +
         "        </table>\n" +
@@ -190,7 +190,7 @@ export default function emailTemplate() {
         "                    <table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" align=\"center\" style=\"margin: auto\">\n" +
         "                        <tr>\n" +
         "                            <td style=\"border-radius: 3px; background: #222222; text-align: center;\" class=\"button-td\">\n" +
-        "                                <a href=\"http://www.google.com\" style=\"background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;\" class=\"button-a\">\n" +
+        "                                <a href=\"https://authenticaseapp.herokuapp.com/verify/"+email+"\" style=\"background: #222222; border: 15px solid #222222; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;\" class=\"button-a\">\n" +
         "                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style=\"color:#ffffff;\">Login</span>&nbsp;&nbsp;&nbsp;&nbsp;\n" +
         "                                </a>\n" +
         "                            </td>\n" +
@@ -215,7 +215,7 @@ export default function emailTemplate() {
         "                        <table role=\"presentation\" align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n" +
         "                            <tr>\n" +
         "                                <td valign=\"middle\" style=\"text-align: center; padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff;\">\n" +
-        "                                    We are delighted to have you set up uoru accoutn with us, get ready for a time of your life.\n" +
+        "                                    We are delighted to have you set up your account with us, get ready for a time of your life.\n" +
         "                                </td>\n" +
         "                            </tr>\n" +
         "                        </table>\n" +
