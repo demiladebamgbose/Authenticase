@@ -14,7 +14,7 @@ class Email {
         console.log('The email is', email);
         var to_email = new helper.Email(email);
 
-        var subject = 'Hello World from the SendGrid Node.js Library!';
+        var subject = 'Welcome to Authenticase';
         var content = new helper.Content('text/html', emailTemplate(email));
         var mail = new helper.Mail(from_email, subject, to_email, content);
 
