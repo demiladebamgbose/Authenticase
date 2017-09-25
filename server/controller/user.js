@@ -27,7 +27,6 @@ class User {
 
         const userSchema = userModel.model;
         userSchema.findOne({email: req.body.email})
-            .populate('bet')
             .exec((err, userData) => {
             if (err) {
                 console.log(err);
