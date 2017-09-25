@@ -26,9 +26,8 @@ class User {
     login = (req, res) => {
 
         const userSchema = userModel.model;
-
-        console.log('The request is', req.body);
         userSchema.findOne({email: req.body.email})
+            .populate('bet')
             .exec((err, userData) => {
             if (err) {
                 console.log(err);
