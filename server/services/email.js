@@ -11,6 +11,7 @@ var from_email = new helper.Email('joliphizzle@gmail.com');
 class Email {
 
     sendEmail = (email) => {
+        console.log('The email is', email);
         var to_email = new helper.Email(email);
 
         var subject = 'Hello World from the SendGrid Node.js Library!';
@@ -25,6 +26,57 @@ class Email {
         });
 
         sg.API(request, function(error, response) {
+            console.log(response.statusCode);
+            console.log(response.body);
+            console.log(response.headers);
+        });
+
+
+        var sgk = require('sendgrid')(process.env.SENDGRID_API_KEY);
+        var requests = sgk.emptyRequest({
+            method: 'POST',
+            path: '/v3/mail/send',
+            body: {
+                personalizations: [
+                    {
+                        to: [
+                            {
+                                email: email,
+                            },
+                        ],
+                        subject: 'Hello World from the SendGrid Node.js Library!',
+                    },
+                ],
+                from: {
+                    email: 'test@example.com',
+                },
+                content: [
+                    {
+                        type: 'text/plain',
+                        value: 'Hello, Email!',
+                    },
+                ],
+            },
+        });
+
+//With promise
+        sgk.API(requests)
+            .then(response => {
+                console.log(response.statusCode);
+                console.log(response.body);
+                console.log(response.headers);
+            })
+            .catch(error => {
+                //error is an instance of SendGridError
+                //The full response is attached to error.response
+                console.log(error.response.statusCode);
+            });
+
+//With callback
+        sgk.API(requests, function(error, response) {
+            if (error) {
+                console.log('Error response received');
+            }
             console.log(response.statusCode);
             console.log(response.body);
             console.log(response.headers);
