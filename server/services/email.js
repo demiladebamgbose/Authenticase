@@ -14,7 +14,7 @@ class Email {
         var to_email = new helper.Email(email);
 
         var subject = 'Hello World from the SendGrid Node.js Library!';
-        var content = new helper.Content('text/plain', emailTemplate());
+        var content = new helper.Content('text/plain', 'Hello world');
         var mail = new helper.Mail(from_email, subject, to_email, content);
 
         var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
