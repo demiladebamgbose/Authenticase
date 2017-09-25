@@ -27,7 +27,6 @@ class User {
 
         const userSchema = userModel.model;
         userSchema.findOne({username: req.body.username})
-            .populate('bet')
             .exec((err, userData) => {
             if (err) {
                 console.log(err);
