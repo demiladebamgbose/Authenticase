@@ -26,7 +26,9 @@ class User {
     login = (req, res) => {
 
         const userSchema = userModel.model;
-        userSchema.findOne({username: req.body.username})
+
+        console.log('The request is', req.body);
+        userSchema.findOne({email: req.body.email})
             .exec((err, userData) => {
             if (err) {
                 console.log(err);
